@@ -1,0 +1,14 @@
+ services:
+ 
+ # Serviços de mensageria
+ #a9Githinker 
+  broker:
+    container_name: unibus_broker
+    build:
+      context: ./broker
+    restart: unless-stopped
+    volumes:
+      - ./broker/mosquitto.conf:/etc/mosquitto/mosquitto.conf
+    ports:
+      - 1883:1883
+      - 9001:9001
